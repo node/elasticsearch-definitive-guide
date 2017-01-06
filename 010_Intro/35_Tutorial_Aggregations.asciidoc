@@ -46,11 +46,6 @@ GET /megacorp/employee/_search
 }
 --------------------------------------------------
 
-We can see that two employees are interested in music, one in forestry, and one
-in sports.  These aggregations are not precalculated; they are generated on
-the fly from the documents that match the current query. If we want to know
-the popular interests of people called Smith, we can just add the
-appropriate query into the mix:
 可以看到，两位员工对音乐感兴趣，一位对林地感兴趣，一位对运动感兴趣。这些聚合并非预先统计，而是从匹配当前查询的文档中即时生成。如果想知道叫 Smith 的雇员中最受欢迎的兴趣爱好，可以直接添加适当的查询来组合查询：
 
 [source,js]
