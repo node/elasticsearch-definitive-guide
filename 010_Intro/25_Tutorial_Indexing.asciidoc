@@ -1,4 +1,4 @@
-[[tutorial-indexing]]
+[[_finding_your_feet]]
 === 适应新环境
 
 为了对 Elasticsearch 能实现什么及其上手容易程度有一个基本印象，让我们从一个简单的教程开始并介绍索引、搜索及聚合等基础概念。
@@ -23,9 +23,6 @@ drones!"_）激励项目的一部分，我们的任务是为此创建一个雇�
 
 第一个业务需求就是存储雇员数据。((("documents", "indexing")))((("indexing"))) 这将会以 _雇员文档_ 的形式存储：一个文档代表一个雇员。存储数据到 Elasticsearch 的行为叫做 _索引_ ，但在索引一个文档之前，需要确定将文档存储在哪里。
 
-
-An Elasticsearch cluster can((("clusters", "indices in")))(((in clusters"))) contain multiple _indices_, which in turn contain multiple _types_.((("tables"))) These types hold multiple _documents_,
-and each document has((("fields"))) multiple _fields_.
 一个 Elasticsearch 集群可以 ((("clusters", "indices in")))(((in clusters"))) 包含多个 _索引_ ，相应的每个索引可以包含多个 _类型_ 。((("tables"))) 这些不同的类型存储着多个 _文档_ ，每个文档又有 ((("fields"))) 多个 _属性_ 。
 
 .Index Versus Index Versus Index
@@ -56,8 +53,6 @@ _索引一个文档_ 就是存储一个文档到一个 _索引_ （名词）中�
 * 该类型位于 _索引_ `megacorp` 内。
 * 该索引保存在我们的 Elasticsearch 集群中。
 
-In practice, this is easy (even though it looks like a lot of steps).  We
-can perform all of those actions in a single command:
 实践中这非常简单（尽管看起来有很多步骤），我们可以通过一条命令完成所有这些动作：
 
 [source,js]
