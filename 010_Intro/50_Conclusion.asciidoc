@@ -1,4 +1,4 @@
-[[Conclusion]]
+[[_next_steps]]
 === 后续步骤
 
 现在对于通过 Elasticsearch 能够实现什么样的功能、以及上手的简易程度应该有了初步概念。Elasticsearch 力图通过最少的知识和配置做到开箱即用。学习 Elasticsearch 的最好方式是投入实践：尽管开始索引和搜索吧！
