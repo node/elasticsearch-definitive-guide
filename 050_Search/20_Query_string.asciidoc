@@ -1,7 +1,7 @@
 [[search-lite]]
 === _轻量_ 搜索
 
-有两种形式的‘搜索’ API：一种是“轻量的” _查询字符串_ 版本，要求在查询字符串中传递所有的((("searching", "query string searches")))((("query stri    ngs", "searching with")))参数，另一种是更完整的 _请求体_ 版本，要求使用JSON格式，及更丰富的搜索语言，叫做查询表达式。
+有两种形式的‘搜索’ API：一种是“轻量的” _查询字符串_ 版本，要求在查询字符串中传递所有的((("searching", "query string searches")))((("query stri    ngs", "searching with")))参数，另一种是更完整的 _请求体_ 版本，要求使用 JSON 格式，及更丰富的搜索语言，叫做查询表达式。
 
 查询字符串搜索非常适用于通过命令行做即席查询。例如，查询在 `tweet` 类型中 `tweet` 字段包含 `elasticsearch` 单词的所有文档：
 
