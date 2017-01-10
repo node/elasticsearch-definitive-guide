@@ -1,4 +1,4 @@
-[[dictionary-stemmers]]
+[[_dictionary_stemmers]]
 === 字典词干提取器
 
 _字典词干提取器_ 在工作机制上与 <<algorithmic-stemmers,算法化词干提取器>> 完全不同。((("stemming words", "dictionary stemmers")))((("dictionary stemmers")))  不同于应用一系列标准规则到每个词上，字典词干提取器只是简单地在字典里查找词。理论上可以给出比算法化词干提取器更好的结果。一个字典词干提取器应当可以：
