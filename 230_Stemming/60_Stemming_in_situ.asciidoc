@@ -15,7 +15,7 @@ Pos 4: (jumped,jump) <1>
 
 Warning：使用此方法前请先阅读 <<stemming-in-situ-good-idea>> 。
 
-为了归档词干提取出的 _原形_ ，我们将使用 http://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-keyword-repeat-tokenfilter.html[`keyword_repeat`] 过滤器，((("keyword_repeat token filter")))跟`keyword_marker`过滤器 ( see <<preventing-stemming>> ) 一样，它把每一个词项都标记为关键词，以防止后续词干提取器对其修改。但是，它依然会在相同位置上重复词项，并且这个重复的词项 *是* 提取的词干。
+为了归档词干提取出的 _原形_ ，我们将使用 http://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-keyword-repeat-tokenfilter.html[`keyword_repeat`] 过滤器，((("keyword_repeat token filter")))跟 `keyword_marker` 过滤器 ( see <<preventing-stemming>> ) 一样，它把每一个词项都标记为关键词，以防止后续词干提取器对其修改。但是，它依然会在相同位置上重复词项，并且这个重复的词项 *是* 提取的词干。
 
 
 单独使用 `keyword_repeat` token 过滤器将得到以下结果：
