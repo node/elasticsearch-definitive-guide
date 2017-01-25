@@ -71,7 +71,7 @@ PUT /my_index
 
 在 <<using-language-analyzers>> 我们展示了如何整合一个已提取词干属性的查询(为了增加召回率)和一个未提取词干属性的查询（为了提升相关度）。((("language analyzers", "combining query on stemmed and unstemmed field"))) 当提取和未提取词干的属性相互独立时，单个属性的贡献可以通过给其中一个属性增加boost值来优化(参见 <<prioritising-clauses>> )。相反地，如果已提取和未提取词干的形式置于同一个属性，就没有办法来优化搜索结果了。
 
-第二个问题是，必须搞清楚  ((("relevance scores", "stemming in situ and")))相关度分值是否如何计算的。在 <<relevance-intro>> 我们解释了部分计算依赖于 _逆文档频率_（IDF）—— 即一个词在索引库的所有文档中出现的频繁程度。((("inverse document frequency", "stemming in situ and"))) 在一个包含文本`jump jumped jumps`的文档上使用原形词干提取，将得到下列词项：
+第二个问题是，必须搞清楚  ((("relevance scores", "stemming in situ and")))相关度分值是否如何计算的。在 <<relevance-intro>> 我们解释了部分计算依赖于逆文档频率（IDF）—— 即一个词在索引库的所有文档中出现的频繁程度。((("inverse document frequency", "stemming in situ and"))) 在一个包含文本 `jump jumped jumps` 的文档上使用原形词干提取，将得到下列词项：
 
 [source,text]
 ------------------------------------
