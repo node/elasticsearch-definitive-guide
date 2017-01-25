@@ -1,7 +1,7 @@
 [[stemming-in-situ]]
 === 原形词干提取
 
-为了完整地 ((("stemming words", "stemming in situ")))完成本章的内容，我们将介绍如何像未提取词干时一样索引已提取词干的词到相同的字段。举个例子，分析句子 _The quick foxes jumped_ 将会得到以下词项：
+为了完整地 ((("stemming words", "stemming in situ")))完成本章的内容，我们将讲解如何将已提取词干的词和原词索引到同一个字段中。举个例子，分析句子 _The quick foxes jumped_ 将会得到以下词项：
 
 [source,text]
 ------------------------------------
@@ -15,7 +15,7 @@ Pos 4: (jumped,jump) <1>
 
 Warning：使用此方法前请先阅读 <<stemming-in-situ-good-idea>> 。
 
-为了归档词干提取出的 _原形_ ，我们将使用 http://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-keyword-repeat-tokenfilter.html[`keyword_repeat`] 过滤器，((("keyword_repeat token filter")))跟`keyword_marker`过滤器 ( see <<preventing-stemming>> ) 一样，它把每一个词项都标记为关键词，以防止子序列的词干 。但是，它依然会在相同位置上重复词项，并且这个重复的词项 *是* 提取的词干。
+为了归档词干提取出的 _原形_ ，我们将使用 http://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-keyword-repeat-tokenfilter.html[`keyword_repeat`] 过滤器，((("keyword_repeat token filter")))跟`keyword_marker`过滤器 ( see <<preventing-stemming>> ) 一样，它把每一个词项都标记为关键词，以防止后续词干提取器对其修改。但是，它依然会在相同位置上重复词项，并且这个重复的词项 *是* 提取的词干。
 
 
 单独使用 `keyword_repeat` token 过滤器将得到以下结果：
@@ -65,9 +65,9 @@ PUT /my_index
 [[stemming-in-situ-good-idea]]
 ==== 原形词干提取是个好主意吗
 
-用户喜欢 _原形_ 词干提取这个主意：``如果我们可以只使用一个组合属性，为何要分别使用一个未提取词干的属性 _和_ 一个已提取词干的属性？'' 但这是一个好主意吗？答案一直都是否定的。因为有两个问题：
+用户喜欢 _原形_ 词干提取这个主意：``如果我可以只用一个组合字段，为什么还要分别存一个未提取词干和已提取词干的字段呢？'' 但这是一个好主意吗？答案一直都是否定的。因为有两个问题：
 
-第一个问题是区分精准匹配和非常精准匹配的能力。本章中，我们看到了多义词经常会被展开成相同的词干词：`organs` 和 `organization` 都会被提取为 `organ` 。
+第一个问题是无法区分精准匹配和非精准匹配。本章中，我们看到了多义词经常会被展开成相同的词干词：`organs` 和 `organization` 都会被提取为 `organ` 。
 
 在 <<using-language-analyzers>> 我们展示了如何整合一个已提取词干属性的查询(为了增加召回率)和一个未提取词干属性的查询（为了提升相关度）。((("language analyzers", "combining query on stemmed and unstemmed field"))) 当提取和未提取词干的属性相互独立时，单个属性的贡献可以通过给其中一个属性增加boost值来优化(参见 <<prioritising-clauses>> )。相反地，如果已提取和未提取词干的形式置于同一个属性，就没有办法来优化搜索结果了。
 
